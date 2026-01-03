@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     @csrf
     @if($method == 'edit')
     <div class="form-group">
@@ -46,6 +46,12 @@
             <optio @if($selected == 'Umum') selected @endif>Umum</option>
             <optio @if($selected == 'ATK') selected @endif>ATK</option>
         </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Foto Produk</label>
+        <input type="file" class="form-control" name="foto" {{ $method === 'new' ? 'required' : '' }} accept="image/*">
     </div>
 
     <button class="btn btn-primary mt-3">Submit</button>

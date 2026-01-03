@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterItemsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,15 @@ Route::post('/master-items/form/{method}/{id?}', [App\Http\Controllers\MasterIte
 Route::get('/master-items/view/{kode}', [App\Http\Controllers\MasterItemsController::class, 'singleView']);
 Route::get('/master-items/delete/{id}', [App\Http\Controllers\MasterItemsController::class, 'delete']);
 
+Route::get('/category-items', [App\Http\Controllers\CategoryItemsController::class, 'index']);
+Route::post('/category-items/form/{method}/{id?}', [App\Http\Controllers\CategoryItemsController::class, 'formSubmit']);
+Route::get('/category-items/form/{method}/{id?}', [App\Http\Controllers\CategoryItemsController::class, 'formView']);
+Route::get('/category-items/search', [App\Http\Controllers\CategoryItemsController::class, 'search']);
+Route::get('/category-items/view/{kode}', [App\Http\Controllers\CategoryItemsController::class, 'singleView']);
+Route::get('/category-items/delete/{id}', [App\Http\Controllers\CategoryItemsController::class, 'delete']);
 
+Route::get('/master-items/download-excel', [MasterItemsController::class, 'downloadExcel']);
+
+
+Route::get('/master-items/download-pdf', [MasterItemsController::class, 'downloadPdf']);
 Route::get('/master-items/update-random-data', [App\Http\Controllers\MasterItemsController::class, 'updateRandomData']);

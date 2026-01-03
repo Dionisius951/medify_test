@@ -10,6 +10,9 @@
             <div class="card">
                 <div class="card-header">Daftar Master Items</div>
 
+                <div>
+                    <a href="{{ url('/master-items/download-excel') }}" class="btn btn-success">Download Excel</a>
+                </div>
                 <div class="card-body">
                     @include('master_items.index.filter')
                     @include('master_items.index.table')
